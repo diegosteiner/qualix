@@ -55,6 +55,8 @@
                            href="{{ route('admin.requirements', ['course' => $course->id]) }}">{{__('t.views.admin.requirements.menu_name')}}</b-dropdown-item>
                         <b-dropdown-item {{ Route::currentRouteName() == 'admin.categories' ? ' active' : '' }}
                            href="{{ route('admin.categories', ['course' => $course->id]) }}">{{__('t.views.admin.categories.menu_name')}}</b-dropdown-item>
+                        <b-dropdown-item {{ Route::currentRouteName() == 'admin.qualis' ? ' active' : '' }}
+                           href="{{ route('admin.qualis', ['course' => $course->id]) }}">{{__('t.views.admin.qualis.menu_name')}}</b-dropdown-item>
                     </b-nav-item-dropdown>
                 @endif
                 <b-nav-item href="{{ route('admin.newcourse') }}" {{ Route::currentRouteName() == 'admin.newcourse' ? ' active' : '' }}>
