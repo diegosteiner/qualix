@@ -9,6 +9,7 @@ services:
     depends_on:
       - db
       - node
+      - mail
     volumes:
       - .:/var/www
       - ./public/.htaccess.docker:/var/www/public/.htaccess
@@ -22,8 +23,8 @@ services:
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
       - MYSQL_USER=qualix
       - MYSQL_PASSWORD=qualix
-    ports:
-      - '3306:3306'
+    volumes:
+      - db_data:/var/lib/mysql
 
   mail:
     image: schickling/mailcatcher:latest
@@ -46,3 +47,6 @@ services:
       - db
     ports:
       - '8081:80'
+
+volumes:
+  db_data:
