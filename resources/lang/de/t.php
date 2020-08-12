@@ -5,7 +5,7 @@ return array(
 		"session_expired_try_again" => "Ups, du bist inzwischen nicht mehr eingeloggt. Bitte logge dich nochmals ein, deine Eingaben werden dann wiederhergestellt.",
 	),
 	"footer" => array(
-		"slogan" => "Qualix. was gaffsch?",
+		"slogan" => "Qualix.",
 	),
 	"global" => array(
 		"add" => "Hinzufügen",
@@ -86,9 +86,9 @@ return array(
 			"user" => "Beobachter",
 		),
 		"participant" => array(
-			"group" => "Abteilung",
+			"group" => "Gruppe",
 			"image" => "Bild",
-			"scout_name" => "Pfadiname",
+			"scout_name" => "Name",
 		),
 		"requirement" => array(
 			"blocks" => "Blöcke",
@@ -98,7 +98,7 @@ return array(
 		),
 		"user" => array(
 			"email" => "E-Mail",
-			"group" => "Abteilung",
+			"group" => "Gruppe",
 			"image" => "Bild",
 			"name" => "Name",
 			"password" => "Passwort",
