@@ -75,20 +75,22 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      */
     public function courses()
     {
-        return $this->belongsToMany('App\Models\Course', 'trainers', null, 'course_id')->withPivot('last_accessed')->orderByDesc('trainers.last_accessed');
+        return $this->belongsToMany('App\Models\Course', 'trainers', null, 'course_id')->withPivot('last_accessed')->orderBy('courses.name');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function nonArchivedCourses() {
+    public function nonArchivedCourses()
+    {
         return $this->courses()->where('archived', '=', false);
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function archivedCourses() {
+    public function archivedCourses()
+    {
         return $this->courses()->where('archived', '=', true);
     }
 
@@ -97,7 +99,8 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      *
      * @return Course
      */
-    public function getLastAccessedCourseAttribute() {
+    public function getLastAccessedCourseAttribute()
+    {
         return $this->courses()->firstOrFail();
     }
 
@@ -107,7 +110,8 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @param Course $course
      * @return CarbonInterface
      */
-    public function getLastUsedBlockDate(Course $course) {
+    public function getLastUsedBlockDate(Course $course)
+    {
         $date = Carbon::parse($this->courses()->withPivot('last_used_block_date')->findOrFail($course->id)->pivot->last_used_block_date);
         $carbon = $date ?? Carbon::today();
         return $carbon;
@@ -118,7 +122,8 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      *
      * @param string $value
      */
-    public function setLastUsedBlockDate($value, Course $course) {
+    public function setLastUsedBlockDate($value, Course $course)
+    {
         $this->courses()->updateExistingPivot($course->id, ['last_used_block_date' => Carbon::parse($value)]);
     }
 }

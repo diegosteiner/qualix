@@ -20,8 +20,7 @@ Route::middleware(['auth', 'verified', 'restoreFormData'])->group(function () {
     Route::get('/course', 'CourseController@noCourse');
     Route::get('/user', 'HomeController@editUser')->name('user');
     Route::post('/user', 'HomeController@updateUser')->name('user.update');
-
-    Route::get('/course/{course}', 'HomeController@index')->name('index');
+    Route::get('/course/{course}', 'ParticipantListController@index')->name('index');
 
     Route::get('/course/{course}/blocks', 'BlockListController@index')->name('blocks');
     Route::get('/course/{course}/crib', 'BlockListController@crib')->name('crib');
@@ -53,7 +52,7 @@ Route::middleware(['auth', 'verified', 'restoreFormData'])->group(function () {
     Route::get('/invitation/{token}', 'InvitationController@index')->name('invitation.view');
     Route::post('/invitation', 'InvitationController@claim')->name('invitation.claim');
 
-    Route::middleware('courseNotArchived')->group(function() {
+    Route::middleware('courseNotArchived')->group(function () {
         Route::get('/course/{course}/admin/participants', 'ParticipantController@index')->name('admin.participants');
         Route::post('/course/{course}/admin/participants', 'ParticipantController@store')->name('admin.participants.store');
         Route::get('/course/{course}/admin/participants/import', 'ParticipantController@upload')->name('admin.participants.upload');
