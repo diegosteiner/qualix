@@ -37,10 +37,12 @@
                 $fields = [
                     __('t.models.requirement.content') => function(\App\Models\Requirement $requirement) { return $requirement->content; },
                     __('t.models.requirement.mandatory') => function(\App\Models\Requirement $requirement) { return $requirement->mandatory ? __('t.global.yes') : __('t.global.no'); },
+                    __('t.models.requirement.num_indicators') => function(\App\Models\Requirement $requirement) { return count($requirement->indicators); },
                     __('t.models.requirement.num_observations') => function(\App\Models\Requirement $requirement) { return count($requirement->observations); },
                 ];
                 if ($course->archived) {
                     unset($fields[__('t.models.requirement.num_observations')]);
+                    unset($fields[__('t.models.requirement.num_indicators')]);
                 }
             @endphp
             @component('components.responsive-table', [

@@ -60,7 +60,7 @@ class Requirement extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function requirementDetails()
+    public function indicators()
     {
         return $this->hasMany('App\Models\RequirementDetail');
     }

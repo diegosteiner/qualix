@@ -63,6 +63,7 @@ return array(
 		),
 		"category" => array(
 			"name" => "Titel",
+      "num_requirements" => "Anzahl Anforderungen",
 			"num_observations" => "Anzahl Beobachtungen",
 		),
 		"course" => array(
@@ -94,6 +95,7 @@ return array(
 			"categories" => "Kategorien",
 			"content" => "Anforderung",
 			"mandatory" => "Mindestanforderung",
+			"num_indicators" => "Anzahl Indikatoren",
 			"num_observations" => "Anzahl Beobachtungen",
 		),
 		"user" => array(

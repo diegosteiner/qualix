@@ -27,9 +27,11 @@
             @php
                 $fields = [
                     __('t.models.category.name') => function(\App\Models\Category $category) { return $category->name; },
+                    __('t.models.category.num_requirements') => function(\App\Models\Category $category) { return count($category->requirements); },
                     __('t.models.category.num_observations') => function(\App\Models\Category $category) { return count($category->observations); },
                 ];
                 if ($course->archived) {
+                    unset($fields[__('t.models.category.num_requirements')]);
                     unset($fields[__('t.models.category.num_observations')]);
                 }
             @endphp

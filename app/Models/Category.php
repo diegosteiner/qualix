@@ -38,4 +38,12 @@ class Category extends Model
     {
         return $this->belongsToMany('App\Models\Observation', 'observations_categories', 'category_id');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function requirements()
+    {
+        return $this->belongsToMany('App\Models\Requirement', 'requirements_categories', 'category_id');
+    }
 }
