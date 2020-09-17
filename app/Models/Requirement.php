@@ -9,7 +9,7 @@ namespace App\Models;
  * @property bool $mandatory
  * @property Course $course
  * @property Observation[] $observations
- * @property Block[] $blocks
+ * @property Category[] $categories
  * @property RequirementDetail[] $requirementDetails
  */
 class Requirement extends Model
@@ -52,9 +52,9 @@ class Requirement extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function blocks()
+    public function categories()
     {
-        return $this->belongsToMany('App\Models\Block', 'blocks_requirements', 'requirement_id', 'block_id');
+        return $this->belongsToMany('App\Models\Category', 'requirements_categories', 'requirement_id', 'category_id');
     }
 
     /**

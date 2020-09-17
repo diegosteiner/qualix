@@ -91,7 +91,7 @@ return array(
 			"scout_name" => "Pfadiname",
 		),
 		"requirement" => array(
-			"blocks" => "Blöcke",
+			"categories" => "Kategorien",
 			"content" => "Anforderung",
 			"mandatory" => "Mindestanforderung",
 			"num_observations" => "Anzahl Beobachtungen",

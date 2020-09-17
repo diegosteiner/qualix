@@ -12,9 +12,9 @@
             <input-checkbox @forminput('mandatory', false) label="{{__('t.models.requirement.mandatory')}}"></input-checkbox>
 
             <input-multi-select
-                @forminput('blocks')
-                label="{{__('t.models.requirement.blocks')}}"
-                :options="{{ json_encode($course->blocks->map->only('id', 'name')) }}"
+                @forminput('categories')
+                label="{{__('t.models.requirement.categories')}}"
+                :options="{{ json_encode($course->categories->map->only('id', 'name')) }}"
                 display-field="name"
                 multiple></input-multi-select>
 
