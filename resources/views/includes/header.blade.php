@@ -25,9 +25,9 @@
                             @endif
                         </b-form-select>
                     </b-nav-form>
-                    <b-nav-item href="{{ route('blocks', ['course' => $course->id]) }}" {{ Route::currentRouteName() == 'blocks' ? ' active' : '' }}>
+                    {{-- <b-nav-item href="{{ route('blocks', ['course' => $course->id]) }}" {{ Route::currentRouteName() == 'blocks' ? ' active' : '' }}>
                         {{__('t.views.blocks.menu_name')}}
-                    </b-nav-item>
+                    </b-nav-item> --}}
 
                     @if(!$course->archived)
                         <b-nav-item href="{{ route('participants', ['course' => $course->id]) }}" {{ Route::currentRouteName() == 'participants' ? ' active' : '' }}>
@@ -42,19 +42,19 @@
                     </b-nav-item>
                     <b-nav-item-dropdown text="{{__('t.header.course_admin')}}" {{ substr( Route::currentRouteName(), 0, 5 ) == 'admin' ? ' active' : '' }}>
                         <b-dropdown-item {{ Route::currentRouteName() == 'admin.course' ? ' active' : '' }}
-                           href="{{ route('admin.course', ['course' => $course->id]) }}">{{__('t.views.admin.course_settings.menu_name')}}</b-dropdown-item>
+                            href="{{ route('admin.course', ['course' => $course->id]) }}">{{__('t.views.admin.course_settings.menu_name')}}</b-dropdown-item>
                         <b-dropdown-item {{ Route::currentRouteName() == 'admin.equipe' ? ' active' : '' }}
-                           href="{{ route('admin.equipe', ['course' => $course->id]) }}">{{__('t.views.admin.equipe.menu_name')}}</b-dropdown-item>
-                        <b-dropdown-item {{ Route::currentRouteName() == 'admin.blocks' ? ' active' : '' }}
-                           href="{{ route('admin.blocks', ['course' => $course->id]) }}">{{__('t.views.admin.blocks.menu_name')}}</b-dropdown-item>
+                            href="{{ route('admin.equipe', ['course' => $course->id]) }}">{{__('t.views.admin.equipe.menu_name')}}</b-dropdown-item>
+                        {{-- <b-dropdown-item {{ Route::currentRouteName() == 'admin.blocks' ? ' active' : '' }}
+                            href="{{ route('admin.blocks', ['course' => $course->id]) }}">{{__('t.views.admin.blocks.menu_name')}}</b-dropdown-item> --}}
                         @if(!$course->archived)
                             <b-dropdown-item dropdown-item{{ Route::currentRouteName() == 'admin.participants' ? ' active' : '' }}
-                               href="{{ route('admin.participants', ['course' => $course->id]) }}">{{__('t.views.admin.participants.menu_name')}}</b-dropdown-item>
+                                href="{{ route('admin.participants', ['course' => $course->id]) }}">{{__('t.views.admin.participants.menu_name')}}</b-dropdown-item>
                         @endif
                         <b-dropdown-item {{ Route::currentRouteName() == 'admin.requirements' ? ' active' : '' }}
-                           href="{{ route('admin.requirements', ['course' => $course->id]) }}">{{__('t.views.admin.requirements.menu_name')}}</b-dropdown-item>
+                            href="{{ route('admin.requirements', ['course' => $course->id]) }}">{{__('t.views.admin.requirements.menu_name')}}</b-dropdown-item>
                         <b-dropdown-item {{ Route::currentRouteName() == 'admin.categories' ? ' active' : '' }}
-                           href="{{ route('admin.categories', ['course' => $course->id]) }}">{{__('t.views.admin.categories.menu_name')}}</b-dropdown-item>
+                            href="{{ route('admin.categories', ['course' => $course->id]) }}">{{__('t.views.admin.categories.menu_name')}}</b-dropdown-item>
                     </b-nav-item-dropdown>
                 @endif
                 <b-nav-item href="{{ route('admin.newcourse') }}" {{ Route::currentRouteName() == 'admin.newcourse' ? ' active' : '' }}>
