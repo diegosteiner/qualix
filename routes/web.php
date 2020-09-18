@@ -77,6 +77,12 @@ Route::middleware(['auth', 'verified', 'restoreFormData'])->group(function () {
     Route::post('/course/{course}/admin/requirement/{requirement}', 'RequirementController@update')->name('admin.requirements.update');
     Route::delete('/course/{course}/admin/requirement/{requirement}', 'RequirementController@destroy')->name('admin.requirements.delete');
 
+    Route::get('/course/{course}/admin/indicator', 'IndicatorController@index')->name('admin.indicators');
+    Route::post('/course/{course}/admin/indicator', 'IndicatorController@store')->name('admin.indicators.store');
+    Route::get('/course/{course}/admin/indicator/{indicator}', 'IndicatorController@edit')->name('admin.indicators.edit');
+    Route::post('/course/{course}/admin/indicator/{indicator}', 'IndicatorController@update')->name('admin.indicators.update');
+    Route::delete('/course/{course}/admin/indicator/{indicator}', 'IndicatorController@destroy')->name('admin.indicators.delete');
+
     Route::get('/course/{course}/admin/category', 'CategoryController@index')->name('admin.categories');
     Route::post('/course/{course}/admin/category', 'CategoryController@store')->name('admin.categories.store');
     Route::get('/course/{course}/admin/category/{category}', 'CategoryController@edit')->name('admin.categories.edit');
