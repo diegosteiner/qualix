@@ -99,6 +99,13 @@ return array(
       "num_indicators" => "Anzahl Indikatoren",
       "num_observations" => "Anzahl Beobachtungen",
     ),
+    "indicator" => array(
+      "requirements" => "Anforderungen",
+      "requirement" => "Anforderung",
+      "content" => "Indikator",
+      "mandatory" => "Mindestanforderung",
+      "num_observations" => "Anzahl Beobachtungen",
+    ),
     "user" => array(
       "email" => "E-Mail",
       "group" => "Abteilung",
@@ -113,7 +120,7 @@ return array(
       "blocks" => array(
         "are_blocks_required" => array(
           "answer" => "Ja, jede Beobachtung gehört zu genau einem Block. Daher kannst du Qualix nur verwenden, wenn du Blöcke im Kurs erfasst hast. Falls du Beobachtungen ausserhalb der Blöcke machen willst, empfehlen wir, einen oder mehrere \"Sonstiges\"-Blöcke zu erfassen.",
-          "question" => "Muss ich Blöcke für meinen Kurs erfassen?",
+          "question" => "Soll ich Blöcke für meinen Kurs erfassen?",
         ),
         "create_success" => "Block \":name\" wurde erfolgreich erstellt.",
         "delete_success" => "Block \":name\" wurde erfolgreich gelöscht.",
@@ -150,7 +157,7 @@ return array(
       "categories" => array(
         "are_categories_required" => array(
           "answer" => "Nein, Kategorien sind komplett optional, falls ihr in eurem Kursteam keine Verwendung dafür habt.",
-          "question" => "Muss ich Kategorien für meinen Kurs erfassen?",
+          "question" => "Soll ich Kategorien für meinen Kurs erfassen?",
         ),
         "create_success" => "Kategorie \":name\" wurde erfolgreich erstellt.",
         "delete_success" => "Kategorie \":name\" wurde erfolgreich erstellt.",
@@ -244,10 +251,30 @@ return array(
         "unknown_error" => "Beim Import ist ein Fehler aufgetreten. Versuche es nochmals, oder erfasse deine Teilnehmende manuell.",
         "warning_existing_participants" => "In deinem Kurs sind bereits Teilnehmende erfasst. Diese bleiben bestehen und durch den Import werden neue zusätzliche erfasst.",
       ),
+      "indicators" => array(
+        "are_indicators_required" => array(
+          "answer" => "Es ist sehr wichtig, vor dem Kurs im Kursteam Indikatoren festzulegen, damit alle Teilnehmenden nach dem gleichen Schema qualifiziert werden und damit Entscheide im Kurs einfacher gefällt werden können. Aber wenn du diese nicht in Qualix führen willst, kannst du Beobachtungen auch ohne Indikatoren erfassen.",
+          "question" => "Soll ich Indikatoren für meinen Kurs erfassen?",
+        ),
+        "create_success" => "Indikator wurde erfolgreich erstellt.",
+        "delete_success" => "Indikator wurde erfolgreich gelöscht.",
+        "edit" => "Indikator bearbeiten",
+        "edit_success" => "Indikator wurde erfolgreich gespeichert.",
+        "existing" => "Indikatoren :requirementName",
+        "menu_name" => "Indikatoren",
+        "new" => "Neuer Indikator",
+        "no_indicators" => "Bisher sind keine Indikatoren erfasst.",
+        "observations_on_indicator" => "{0}Es ist kein Indikator damit verbunden.|{1}Damit verbunden ist ein Indikator, diese wird aber nicht gelöscht.|[2,*]Damit verbunden sind :count Indikatoren, diese werden aber nicht gelöscht.",
+        "really_delete" => "Willst du dieser Indikator wirklich löschen?",
+        "what_are_indicators" => array(
+          "answer" => "Indikatoren sind Beispiel von Verhaltensweise, die auf den Kompetenzerwerb hindeuten.",
+          "question" => "Was sind Indikatoren?",
+        ),
+      ),
       "requirements" => array(
         "are_requirements_required" => array(
           "answer" => "Es ist sehr wichtig, vor dem Kurs im Kursteam Anforderungen festzulegen, damit alle Teilnehmenden nach dem gleichen Schema qualifiziert werden und damit Entscheide im Kurs einfacher gefällt werden können. Aber wenn du diese nicht in Qualix führen willst, kannst du Beobachtungen auch ohne Anforderungen erfassen.",
-          "question" => "Muss ich Anforderungen für meinen Kurs erfassen?",
+          "question" => "Soll ich Anforderungen für meinen Kurs erfassen?",
         ),
         "create_success" => "Anforderung wurde erfolgreich erstellt.",
         "delete_success" => "Anforderung wurde erfolgreich gelöscht.",
