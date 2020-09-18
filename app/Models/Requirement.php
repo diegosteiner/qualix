@@ -58,10 +58,11 @@ class Requirement extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function indicators()
     {
-        return $this->hasMany('App\Models\RequirementDetail');
+        // return $this->hasMany('App\Models\RequirementDetail');
+        return $this->belongsToMany('App\Models\Indicator', 'requirements_indicators', 'requirement_id', 'indicator_id');
     }
 }
