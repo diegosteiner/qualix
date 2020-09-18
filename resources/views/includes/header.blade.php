@@ -51,10 +51,12 @@
                             <b-dropdown-item dropdown-item{{ Route::currentRouteName() == 'admin.participants' ? ' active' : '' }}
                                 href="{{ route('admin.participants', ['course' => $course->id]) }}">{{__('t.views.admin.participants.menu_name')}}</b-dropdown-item>
                         @endif
-                        <b-dropdown-item {{ Route::currentRouteName() == 'admin.requirements' ? ' active' : '' }}
-                            href="{{ route('admin.requirements', ['course' => $course->id]) }}">{{__('t.views.admin.requirements.menu_name')}}</b-dropdown-item>
                         <b-dropdown-item {{ Route::currentRouteName() == 'admin.categories' ? ' active' : '' }}
                             href="{{ route('admin.categories', ['course' => $course->id]) }}">{{__('t.views.admin.categories.menu_name')}}</b-dropdown-item>
+                        <b-dropdown-item {{ Route::currentRouteName() == 'admin.requirements' ? ' active' : '' }}
+                            href="{{ route('admin.requirements', ['course' => $course->id]) }}">{{__('t.views.admin.requirements.menu_name')}}</b-dropdown-item>
+                        <b-dropdown-item {{ Route::currentRouteName() == 'admin.indicators' ? ' active' : '' }}
+                            href="{{ route('admin.indicators', ['course' => $course->id]) }}">{{__('t.views.admin.indicators.menu_name')}}</b-dropdown-item>
                     </b-nav-item-dropdown>
                 @endif
                 <b-nav-item href="{{ route('admin.newcourse') }}" {{ Route::currentRouteName() == 'admin.newcourse' ? ' active' : '' }}>
