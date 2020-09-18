@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RequirementRequest;
 use App\Models\Course;
 use App\Models\Requirement;
+use App\Models\Indicator;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
