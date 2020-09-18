@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 
 /**
  * @property int $id
@@ -11,8 +12,9 @@ use Illuminate\Support\Collection;
  * @property Block[] $blocks
  * @property Invitation[] $invitations
  * @property User[] $users
- * @property Requirement[] $requirements
  * @property Category[] $categories
+ * @property Requirement[] $requirements
+ * @property Indicator[] $indicators
  * @property Collection $participants
  * @property boolean $archived
  */
@@ -45,6 +47,14 @@ class Course extends Model
     public function users()
     {
         return $this->belongsToMany('App\Models\User', 'trainers', 'course_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function indicators()
+    {
+        return $this->hasMany('App\Models\Indicator', 'course_id');
     }
 
     /**
