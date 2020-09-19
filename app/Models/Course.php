@@ -76,6 +76,22 @@ class Course extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
+    public function ratings()
+    {
+        return $this->hasMany('App\Models\Rating', 'course_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function ratingscales()
+    {
+        return $this->hasMany('App\Models\Ratingscale', 'course_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function participants()
     {
         return $this->hasMany('App\Models\Participant', 'course_id')->orderBy('scout_name');
