@@ -58,7 +58,7 @@ class IndicatorController extends Controller {
      * @param Indicator $indicator
      * @return RedirectResponse
      */
-    public function update(RequirementRequest $request, Course $course, Indicator $indicator) {
+    public function update(IndicatorRequest $request, Course $course, Indicator $indicator) {
         DB::transaction(function () use ($request, $indicator) {
             $data = $request->validated();
             $indicator->update($data);
