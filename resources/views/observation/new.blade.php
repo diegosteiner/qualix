@@ -16,32 +16,34 @@
                 required
                 :autofocus="{{ $participants === null ? 'true' : 'false' }}"></input-multi-select>
 
+            <input-date @forminput('observation_date', Carbon\Carbon::now()->format('Y-m-d')) label="{{__('t.models.observation.observation_date')}}" required></input-date>
+
             <input-textarea
                 @forminput('content')
                 label="{{__('t.models.observation.content')}}"
                 required
                 :autofocus="{{ ($participants !== null) ? 'true' : 'false' }}"></input-textarea>
 
-            <block-and-requirements-input-wrapper v-slot="{ onBlockUpdate, requirementsValue }" initial-requirements-value="{{ old('requirements') }}">
+            {{-- <block-and-requirements-input-wrapper v-slot="{ onBlockUpdate, requirementsValue }" initial-requirements-value="{{ old('requirements') }}"> --}}
 
-                <input-multi-select
+                {{-- <input-multi-select
                     @forminput('block', $block)
                     label="{{__('t.models.observation.block')}}"
                     required
                     :options="{{ json_encode($course->blocks->map->only('id', 'blockname_and_number', 'requirement_ids')) }}"
                     display-field="blockname_and_number"
-                    @input="onBlockUpdate"></input-multi-select>
+                    @input="onBlockUpdate"></input-multi-select> --}}
 
-                <input-multi-select
+                {{-- <input-multi-select
                     name="requirements"
                     :value="requirementsValue"
                     error-message="{{ $errors->first('requirements') }}"
                     label="{{__('t.models.observation.requirements')}}"
                     :options="{{ json_encode($course->requirements->map->only('id', 'content')) }}"
                     display-field="content"
-                    multiple></input-multi-select>
+                    multiple></input-multi-select> --}}
 
-            </block-and-requirements-input-wrapper>
+            {{-- </block-and-requirements-input-wrapper> --}}
 
             <input-radio-button
                 @forminput('impression', 1)
@@ -49,12 +51,12 @@
                 required
                 :options="{{ json_encode([ '2' => __('t.global.positive'), '1' => __('t.global.neutral'), '0' => __('t.global.negative')]) }}"></input-radio-button>
 
-            <input-multi-select
+            {{-- <input-multi-select
                 @forminput('categories')
                 label="{{__('t.models.observation.categories')}}"
                 :options="{{ json_encode($course->categories->map->only('id', 'name')) }}"
                 display-field="name"
-                multiple></input-multi-select>
+                multiple></input-multi-select> --}}
 
             <button-submit></button-submit>
 
