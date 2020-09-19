@@ -62,11 +62,4 @@ class Observation extends Model
         return $this->belongsToMany('App\Models\Requirement', 'observations_requirements', 'observation_id', 'requirement_id');
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function categories()
-    {
-        return $this->belongsToMany('App\Models\Category', 'observations_categories', 'observation_id', 'category_id');
-    }
 }
