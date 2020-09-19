@@ -37,11 +37,4 @@ class Indicator extends Model
         return $this->belongsToMany('App\Models\Requirement', 'requirements_indicators', 'indicator_id', 'requirement_id');
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function observations()
-    {
-        return $this->belongsToMany('App\Models\Observation', 'observations_indicators', 'indicator_id');
-    }
 }
