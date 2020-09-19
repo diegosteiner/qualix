@@ -114,6 +114,18 @@ return array(
       "password" => "Passwort",
       "password_confirmation" => "Passwort bestätigen",
     ),
+    "ratingscale" => array(
+      "ratingscales" => "Bewertungsskalen",
+      "ratingscale" => "Bewertungsskala",
+      "name" => "Titel",
+      "num_ratings" => "Anzahl Skalenelemente",
+    ),
+    "rating" => array(
+      "ratings" => "Skalenelemente",
+      "rating" => "Skalenelement",
+      "name" => "Titel",
+      "ratingscale" => "Bewertungsskala",
+    ),
   ),
   "views" => array(
     "admin" => array(
@@ -269,6 +281,44 @@ return array(
         "what_are_indicators" => array(
           "answer" => "Indikatoren sind Beispiel von Verhaltensweise, die auf den Kompetenzerwerb hindeuten.",
           "question" => "Was sind Indikatoren?",
+        ),
+      ),
+      "ratingscales" => array(
+        "create_success" => "Bewertungsskala erfasst.",
+        "edit_success" => "Bewertungsskala aktualisiert.",
+        "delete_success" => "Bewertungsskala wurde erfolgreich gelöscht.",
+        "back_to_participant" => "Zurück zu :name",
+        "edit" => "Bewertungsskala bearbeiten",
+        "new" => "Bewertungsskala erfassen",
+        "menu_name" => "Bewertungsskalen",
+        "existing" => "Bewertungsskalen :courseName",
+        "no_entries" => "Bisher sind keine Bewertungsskalen erfasst.",
+        "what_are_ratingscales" => array(
+          "answer" => "Bewertungsskalen...",
+          "question" => "Was sind Bewertungsskalen?",
+        ),
+        "are_ratingscales_required" => array(
+          "answer" => "....",
+          "question" => "Soll ich Bewertungsskalen für meinen Kurs erfassen?",
+        ),
+      ),
+      "ratings" => array(
+        "create_success" => "Skalenelement erfasst.",
+        "edit_success" => "Skalenelement aktualisiert.",
+        "delete_success" => "Skalenelement wurde erfolgreich gelöscht.",
+        "back_to_participant" => "Zurück zu :name",
+        "edit" => "Skalenelement bearbeiten",
+        "new" => "Skalenelement erfassen",
+        "menu_name" => "Skalenelemente",
+        "existing" => "Skalenelemente :courseName",
+        "no_entries" => "Bisher sind keine Skalenelemente erfasst.",
+        "what_are_ratings" => array(
+          "answer" => "Skalenelemente ...",
+          "question" => "Was sind Skalenelemente?",
+        ),
+        "are_ratings_required" => array(
+          "answer" => "....",
+          "question" => "Soll ich Skalenelemente für meinen Kurs erfassen?",
         ),
       ),
       "requirements" => array(

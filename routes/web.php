@@ -83,6 +83,18 @@ Route::middleware(['auth', 'verified', 'restoreFormData'])->group(function () {
     Route::post('/course/{course}/admin/indicator/{indicator}', 'IndicatorController@update')->name('admin.indicators.update');
     Route::delete('/course/{course}/admin/indicator/{indicator}', 'IndicatorController@destroy')->name('admin.indicators.delete');
 
+    Route::get('/course/{course}/admin/ratingscale', 'RatingscaleController@index')->name('admin.ratingscales');
+    Route::post('/course/{course}/admin/ratingscale', 'RatingscaleController@store')->name('admin.ratingscales.store');
+    Route::get('/course/{course}/admin/ratingscale/{ratingscale}', 'RatingscaleController@edit')->name('admin.ratingscales.edit');
+    Route::post('/course/{course}/admin/ratingscale/{ratingscale}', 'RatingscaleController@update')->name('admin.ratingscales.update');
+    Route::delete('/course/{course}/admin/ratingscale/{ratingscale}', 'RatingscaleController@destroy')->name('admin.ratingscales.delete');
+
+    Route::get('/course/{course}/admin/rating', 'RatingController@index')->name('admin.ratings');
+    Route::post('/course/{course}/admin/rating', 'RatingController@store')->name('admin.ratings.store');
+    Route::get('/course/{course}/admin/rating/{rating}', 'RatingController@edit')->name('admin.ratings.edit');
+    Route::post('/course/{course}/admin/rating/{rating}', 'RatingController@update')->name('admin.ratings.update');
+    Route::delete('/course/{course}/admin/rating/{rating}', 'RatingController@destroy')->name('admin.ratings.delete');
+
     Route::get('/course/{course}/admin/category', 'CategoryController@index')->name('admin.categories');
     Route::post('/course/{course}/admin/category', 'CategoryController@store')->name('admin.categories.store');
     Route::get('/course/{course}/admin/category/{category}', 'CategoryController@edit')->name('admin.categories.edit');
