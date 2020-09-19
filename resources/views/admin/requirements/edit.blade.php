@@ -27,10 +27,16 @@
     <b-card>
         <template #header>{{__('t.views.admin.indicators.new')}}</template>
 
-        @component('components.form', ['route' => ['admin.indicators.store', ['course' => $course->id, 'requirement' => $requirement->id]]])
+            @component('components.form', ['route' => ['admin.indicators.store', ['course' => $course->id]]])
+            {{-- @component('components.form', ['route' => ['admin.indicators.store', ['course' => $course->id]]]) --}}
             <input-text @forminput('content') label="{{__('t.models.indicator.content')}}" required autofocus></input-text>
 
-            {{-- <input-checkbox @forminput('mandatory', false) label="{{__('t.models.requirement.mandatory')}}"></input-checkbox> --}}
+            <input-multi-select
+                @forminput('requirements', $course->requirements->pluck('id')->join(','))
+                label="{{__('t.models.indicator.requirements')}}"
+                :options="{{ json_encode($course->requirements->map->only('id', 'content')) }}"
+                display-field="content"
+                multiple></input-multi-select>
 
 
             <button-submit label="{{__('t.global.add')}}">
