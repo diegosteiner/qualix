@@ -33,9 +33,9 @@ class RatingscaleController extends Controller {
             $data = $request->validated();
             $ratingscale = Ratingscale::create(array_merge($data, ['course_id' => $course->id]));
 
-            $request->session()->flash('alert-success', __('t.views.admin.ratingscales.create_success'));
+            $request->session()->flash('alert-success', __('t.views.admin.ratingscales.create_success', ['name' => $ratingscale->name]));
         });
-        return Redirect::route('admin.v', ['course' => $course->id]);
+        return Redirect::route('admin.ratingscales', ['course' => $course->id]);
     }
 
     /**
@@ -76,7 +76,7 @@ class RatingscaleController extends Controller {
      * @return RedirectResponse
      */
     public function destroy(Request $request, Course $course, Ratingscale $ratingscale) {
-        $requirement->delete();
+        $ratingscale->delete();
         $request->session()->flash('alert-success', __('t.views.admin.ratingscales.delete_success'));
         return Redirect::route('admin.ratingscales', ['course' => $course->id]);
     }

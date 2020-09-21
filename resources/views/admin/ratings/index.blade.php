@@ -45,7 +45,7 @@
                     'delete' => function(\App\Models\Rating $rating) use ($course) { return [
                         'text' => __('t.views.admin.ratings.really_delete', ['name' => $rating->name]),
                         'route' => ['admin.ratings.delete', ['course' => $course->id, 'rating' => $rating->id]],
-                     ];},
+                    ];},
                 ]
             ])@endcomponent
 

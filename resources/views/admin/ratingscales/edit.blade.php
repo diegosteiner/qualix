@@ -23,7 +23,8 @@
             <input-text @forminput('name') label="{{__('t.models.rating.name')}}" required autofocus></input-text>
 
             <input-multi-select
-                @forminput('ratingscales', $course->ratingscales->pluck('id')->join(','))
+                {{-- @forminput('ratingscales', $course->ratingscales->pluck('id')->join(',')) --}}
+                @forminput('ratingscales', $ratingscale->id)
                 label="{{__('t.models.rating.ratingscale')}}"
                 :options="{{ json_encode($course->ratingscales->map->only('id', 'name')) }}"
                 display-field="name"
@@ -58,7 +59,7 @@
                 'actions' => [
                     'edit' => function(\App\Models\Rating $rating) use ($course) { return route('admin.ratings.edit', ['course' => $course->id, 'rating' => $rating->id]); },
                     'delete' => function(\App\Models\Rating $rating) use ($course) { return [
-                        'text' => __('t.views.admin.ratings.really_delete') ,
+                        'text' => __('t.views.admin.ratings.really_delete', ['name' => $rating->name]) ,
                         'route' => ['admin.ratings.delete', ['course' => $course->id, 'rating' => $rating->id]],
                     ];},
                 ]

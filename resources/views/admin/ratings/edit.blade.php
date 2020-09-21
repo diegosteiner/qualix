@@ -10,7 +10,7 @@
             <input-text @forminput('name', $rating->name) label="{{__('t.models.rating.name')}}" required autofocus></input-text>
 
             <input-multi-select
-                @forminput('ratingscales', $course->ratingscales->pluck('id')->join(','))
+                @forminput('ratingscales', $rating->ratingscale->id)
                 label="{{__('t.models.rating.ratingscale')}}"
                 :options="{{ json_encode($course->ratingscales->map->only('id', 'name')) }}"
                 display-field="name"

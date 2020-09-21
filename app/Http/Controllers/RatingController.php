@@ -28,7 +28,7 @@ class RatingController extends Controller {
      * @param Course $course
      * @return RedirectResponse
      */
-    public function store(RatingRequest $request, Course $course) {
+    public function store(RatingRequest $request, Course $course, Rating $rating) {
         DB::transaction(function () use ($request, $course) {
             $data = $request->validated();
             $rating = Rating::create(array_merge($data, ['course_id' => $course->id]));
@@ -36,6 +36,8 @@ class RatingController extends Controller {
             $request->session()->flash('alert-success', __('t.views.admin.ratings.create_success'));
         });
         return Redirect::route('admin.ratings', ['course' => $course->id]);
+        //view('admin.ratingscales.edit', ['ratingscale' => $ratingscale]);
+        //TODO: return Redirect::route('admin.ratingscales.edit', ['course' => $course->id, 'ratingscale' => $request->ratingscales]);
     }
 
     /**
