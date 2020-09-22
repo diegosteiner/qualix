@@ -55,12 +55,8 @@
                             href="{{ route('admin.categories', ['course' => $course->id]) }}">{{__('t.views.admin.categories.menu_name')}}</b-dropdown-item>
                         <b-dropdown-item {{ Route::currentRouteName() == 'admin.requirements' ? ' active' : '' }}
                             href="{{ route('admin.requirements', ['course' => $course->id]) }}">{{__('t.views.admin.requirements.menu_name')}}</b-dropdown-item>
-                        <b-dropdown-item {{ Route::currentRouteName() == 'admin.indicators' ? ' active' : '' }}
-                            href="{{ route('admin.indicators', ['course' => $course->id]) }}">{{__('t.views.admin.indicators.menu_name')}}</b-dropdown-item>
                         <b-dropdown-item {{ Route::currentRouteName() == 'admin.ratingscales' ? ' active' : '' }}
                             href="{{ route('admin.ratingscales', ['course' => $course->id]) }}">{{__('t.views.admin.ratingscales.menu_name')}}</b-dropdown-item>
-                        <b-dropdown-item {{ Route::currentRouteName() == 'admin.ratings' ? ' active' : '' }}
-                            href="{{ route('admin.ratings', ['course' => $course->id]) }}">{{__('t.views.admin.ratings.menu_name')}}</b-dropdown-item>
                     </b-nav-item-dropdown>
                 @endif
                 <b-nav-item href="{{ route('admin.newcourse') }}" {{ Route::currentRouteName() == 'admin.newcourse' ? ' active' : '' }}>
