@@ -4,35 +4,24 @@
 
     <b-card>
         <template #header>{{__('t.views.admin.requirements.new')}}</template>
-
         @component('components.form', ['route' => ['admin.requirements.store', ['course' => $course->id]]])
-
             <input-text @forminput('content') label="{{__('t.models.requirement.content')}}" required autofocus></input-text>
-
             <input-checkbox @forminput('mandatory', false) label="{{__('t.models.requirement.mandatory')}}"></input-checkbox>
-
             <input-multi-select
                 @forminput('categories')
                 label="{{__('t.models.requirement.categories')}}"
                 :options="{{ json_encode($course->categories->map->only('id', 'name')) }}"
                 display-field="name"
                 multiple></input-multi-select>
-
             <button-submit label="{{__('t.global.add')}}">
-
                 @component('components.help-text', ['id' => 'requirementsHelp', 'key' => 't.views.admin.requirements.what_are_requirements'])@endcomponent
-
             </button-submit>
-
         @endcomponent
-
     </b-card>
 
     <b-card>
         <template #header>{{__('t.views.admin.requirements.existing', ['courseName' => $course->name])}}</template>
-
         @if (count($course->requirements))
-
             @php
                 $fields = [
                     __('t.models.requirement.content') => function(\App\Models\Requirement $requirement) { return $requirement->content; },
@@ -56,13 +45,9 @@
                     ];},
                 ]
             ])@endcomponent
-
         @else
-
             {{__('t.views.admin.requirements.no_requirements')}}
-
             @component('components.help-text', ['id' => 'noRequirementsHelp', 'key' => 't.views.admin.requirements.are_requirements_required'])@endcomponent
-
         @endif
 
     </b-card>
