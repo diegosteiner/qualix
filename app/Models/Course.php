@@ -52,14 +52,6 @@ class Course extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function indicators()
-    {
-        return $this->hasMany('App\Models\Indicator', 'course_id');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
     public function requirements()
     {
         return $this->hasMany('App\Models\Requirement', 'course_id');
@@ -71,14 +63,6 @@ class Course extends Model
     public function categories()
     {
         return $this->hasMany('App\Models\Category', 'course_id');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function ratings()
-    {
-        return $this->hasMany('App\Models\Rating', 'course_id');
     }
 
     /**
