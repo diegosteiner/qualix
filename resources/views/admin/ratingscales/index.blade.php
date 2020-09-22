@@ -4,26 +4,17 @@
 
     <b-card>
         <template #header>{{__('t.views.admin.ratingscales.new')}}</template>
-
         @component('components.form', ['route' => ['admin.ratingscales.store', ['course' => $course->id]]])
-
             <input-text @forminput('name') label="{{__('t.models.ratingscale.name')}}" required autofocus></input-text>
-
             <button-submit label="{{__('t.global.add')}}">
-
-                @component('components.help-text', ['id' => 'categoryHelp', 'key' => 't.views.admin.ratingscales.what_are_ratingscales'])@endcomponent
-
+              @component('components.help-text', ['id' => 'categoryHelp', 'key' => 't.views.admin.ratingscales.what_are_ratingscales'])@endcomponent
             </button-submit>
-
         @endcomponent
-
     </b-card>
 
     <b-card>
         <template #header>{{__('t.views.admin.ratingscales.existing', ['courseName' => $course->name])}}</template>
-
         @if (count($course->ratingscales))
-
             @php
                 $fields = [
                     __('t.models.ratingscale.name') => function(\App\Models\Ratingscale $ratingscale) { return $ratingscale->name; },
@@ -41,15 +32,10 @@
                     ];},
                 ]
             ])@endcomponent
-
         @else
-
             {{__('t.views.admin.ratingscales.no_entries')}}
-
             @component('components.help-text', ['id' => 'noCategoriesHelp', 'key' => 't.views.admin.ratingscales.are_ratingscales_required'])@endcomponent
-
         @endif
-
     </b-card>
 
 @endsection
