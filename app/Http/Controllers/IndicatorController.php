@@ -30,14 +30,13 @@ class IndicatorController extends Controller {
      * @return RedirectResponse
      */
     public function store(IndicatorRequest $request, Course $course) {
-        DB::transaction(function () use ($request, $course) {
-            $data = $request->validated();
-            $indicator = Indicator::create(array_merge($data, ['course_id' => $course->id]));
-            $indicator->requirements()->attach(array_filter(explode(',', $data['requirements'])));
-
+        $data = $request->validated();
+        DB::transaction(function () use ($request, $course, $data) {
+            $data = array_merge($data, ['course_id' => $course->id, 'requirement_id' => $data['requirements']]);
+            $indicator = Indicator::create($data);
             $request->session()->flash('alert-success', __('t.views.admin.indicators.create_success'));
         });
-        return Redirect::route('admin.indicators', ['course' => $course->id]);
+        return Redirect::route('admin.requirements.edit', ['course' => $course->id, 'requirement' => $data['requirements']]);
     }
 
     /**
@@ -59,12 +58,12 @@ class IndicatorController extends Controller {
      * @return RedirectResponse
      */
     public function update(IndicatorRequest $request, Course $course, Indicator $indicator) {
-        DB::transaction(function () use ($request, $indicator) {
+        DB::transaction(function () use ($request, $course, $indicator) {
             $data = $request->validated();
             $indicator->update($data);
             $request->session()->flash('alert-success', __('t.views.admin.indicators.edit_success'));
         });
-        return Redirect::route('admin.indicators', ['course' => $course->id]);
+        return Redirect::route('admin.requirements.edit', ['course' => $course->id, 'requirement' => $indicator->requirement_id]);
     }
 
     /**
@@ -78,6 +77,6 @@ class IndicatorController extends Controller {
     public function destroy(Request $request, Course $course, Indicator $indicator) {
         $indicator->delete();
         $request->session()->flash('alert-success', __('t.views.admin.indicators.delete_success'));
-        return Redirect::route('admin.indicators', ['course' => $course->id]);
+        return Redirect::route('admin.requirements.edit', ['course' => $course->id, 'requirement' => $indicator->requirement_id]);
     }
 }

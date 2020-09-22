@@ -23,7 +23,7 @@ class IndicatorRequest extends FormRequest {
     public function rules() {
         return [
             'content' => 'required|max:255',
-            'requirements' => 'nullable|regex:/^\d+(,\d+)*$/|allExistInCourse',
+            'requirements' => 'required|regex:/^\d+(,\d+)*$/|allExistInCourse',
         ];
     }
 
