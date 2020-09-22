@@ -19,7 +19,7 @@ class Indicator extends Model
     /**
      * @var array
      */
-    protected $fillable = ['course_id', 'content'];
+    protected $fillable = ['course_id', 'requirement_id', 'content'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -30,11 +30,11 @@ class Indicator extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function requirements()
+    public function requirement()
     {
-        return $this->belongsToMany('App\Models\Requirement', 'requirements_indicators', 'indicator_id', 'requirement_id');
+        return $this->belongsTo('App\Models\Requirement', 'requirement_id');
     }
 
 }

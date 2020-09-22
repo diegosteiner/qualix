@@ -10,7 +10,6 @@ namespace App\Models;
  * @property Course $course
  * @property Observation[] $observations
  * @property Category[] $categories
- * @property RequirementDetail[] $requirementDetails
  */
 class Requirement extends Model
 {
@@ -58,11 +57,10 @@ class Requirement extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
      */
     public function indicators()
     {
-        // return $this->hasMany('App\Models\RequirementDetail');
-        return $this->belongsToMany('App\Models\Indicator', 'requirements_indicators', 'requirement_id', 'indicator_id');
+        return $this->hasMany('App\Models\Indicator', 'requirement_id');
     }
 }
