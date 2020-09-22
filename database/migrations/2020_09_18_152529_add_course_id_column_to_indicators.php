@@ -16,7 +16,6 @@ class AddCourseIdColumnToIndicators extends Migration
         Schema::table('indicators', function (Blueprint $table) {
             $table->integer('course_id')->nullable()->after('id');
             $table->foreign('course_id', 'fk_indicators_course')->references('id')->on('courses')->onUpdate('CASCADE')->onDelete('CASCADE');
-
         });
     }
 
