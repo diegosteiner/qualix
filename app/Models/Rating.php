@@ -21,7 +21,7 @@ class Rating extends Model
     /**
      * @var array
      */
-    protected $fillable = ['course_id', 'name'];
+    protected $fillable = ['course_id', 'ratingscale_id', 'name'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
