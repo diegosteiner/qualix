@@ -23,6 +23,7 @@ class RatingRequest extends FormRequest {
     public function rules() {
         return [
             'name' => 'required|max:255',
+            'ratingscales' => 'required|regex:/^\d+(,\d+)*$/|allExistInCourse',
         ];
     }
 
